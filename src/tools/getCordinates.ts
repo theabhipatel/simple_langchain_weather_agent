@@ -9,7 +9,7 @@ export const getCordinatesTool = tool(async ({ city }) => {
         const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`
 
         const res = await fetch(url)
-        const data = await res.json()
+        const data = await res.json() as any
 
         return JSON.stringify({
             name: data.results[0].name,

@@ -1,8 +1,8 @@
 import "dotenv/config"
 import { ChatOpenRouter } from "@langchain/openrouter";
 import { createAgent } from "langchain";
-import { getCordinatesTool } from "./tools/getCordinates";
-import { getWeatherTool } from "./tools/getWeather";
+import { getCordinatesTool } from "./tools/getCordinates.js";
+import { getWeatherTool } from "./tools/getWeather.js";
 
 
 const model = new ChatOpenRouter({
@@ -29,4 +29,4 @@ const messages = result.messages
 const lastMessage = messages[messages.length -1]
 
 
-console.log("Ai Reply => ", lastMessage.content)
+console.log("Ai Reply => ", lastMessage?.content)

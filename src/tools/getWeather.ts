@@ -7,7 +7,7 @@ export const getWeatherTool = tool(
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`;
 
       const res = await fetch(url);
-      const data = await res.json();
+      const data = await res.json() as any
 
       return JSON.stringify({
         current_units: data.current_units,
