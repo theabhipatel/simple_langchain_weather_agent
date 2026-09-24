@@ -1,6 +1,7 @@
 import express from "express";
 import { agent } from "./agent.js";
 import cors from "cors";
+import { langGraphAgent } from "./langGraphAgent.js";
 
 const app = express();
 
@@ -20,7 +21,10 @@ app.post("/api/chat", async (req, res) => {
     const userMessages = req.body;
     console.log("userMessages ==> ", userMessages);
 
-    const result = await agent.invoke({
+    // const result = await agent.invoke({
+    //   messages: userMessages,
+    // });
+    const result = await langGraphAgent.invoke({
       messages: userMessages,
     });
 
