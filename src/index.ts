@@ -1,11 +1,13 @@
 import express from "express";
 import { agent } from "./agent.js";
+import cors from "cors";
 
 const app = express();
 
 const PORT = process.env.PORT || 3211;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res
@@ -15,10 +17,11 @@ app.get("/", (req, res) => {
 
 app.post("/api/chat", async (req, res) => {
   try {
-    const userMessage = req.body.message;
+    const userMessages = req.body;
+    console.log("userMessages ==> ", userMessages);
 
     const result = await agent.invoke({
-      messages: [{ role: "user", content: userMessage }],
+      messages: userMessages,
     });
 
     // console.log("result => ", result.messages)
