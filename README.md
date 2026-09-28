@@ -2,9 +2,10 @@
 
 This is a hand coded weather ai agent which i have built using below tech
 
+- React
 - Node.js
 - Express.js
-- TypeScrip
+- TypeScript
 - LangChain
 - LangGraph
   etc.
